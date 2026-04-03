@@ -1,19 +1,37 @@
 import fs from "fs";
-const base = "https:movingnerds.ca";
-const today = new Date().toISOString().slice(0,10);
+const base = "https://movingnerds.ca";
+const today = new Date().toISOString().slice(0, 10);
 
 const serviceSlugs = [
-  "furniture","appliances","electronics","construction","household","yard" // ← keep in sync with your SERVICES keys
+  "residential-moving",
+  "commercial-moves",
+  "long-distance-moving",
+  "specialty-items"
 ];
 
 const areaSlugs = [
-  "halifax","dartmouth","bedford","sackville","cole-harbour","clayton-park"
+  "halifax",
+  "downtown-halifax",
+  "dartmouth",
+  "bedford",
+  "lower-sackville",
+  "clayton-park",
+  "spryfield",
+  "cole-harbour",
+  "hammonds-plains",
+  "eastern-passage",
+  "timberlea",
+  "beaverbank",
+  "fall-river",
+  "herring-cove"
 ];
 
 const urls = [
   { loc: `${base}/`, changefreq: "daily", priority: "1.0" },
+  { loc: `${base}/appointment`, changefreq: "daily", priority: "0.8" },
+  { loc: `${base}/services`, changefreq: "daily", priority: "0.8" },
   { loc: `${base}/price-calculator`, changefreq: "monthly", priority: "0.7" },
-  ...serviceSlugs.map(s => ({ loc: `${base}/services/${s}`, changefreq: "quarterly", priority: "0.8" })),
+  ...serviceSlugs.map(s => ({ loc: `${base}/services/${s}`, changefreq: "monthly", priority: "0.8" })),
   ...areaSlugs.map(a => ({ loc: `${base}/areas/${a}`, changefreq: "monthly", priority: "0.6" })),
 ];
 
@@ -29,4 +47,4 @@ ${urls.map(u => `  <url>
 `;
 
 fs.writeFileSync("public/sitemap.xml", xml);
-console.log("✅ sitemap.xml generated");
+console.log("✅ sitemap.xml generated with Moving Nerds routes");

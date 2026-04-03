@@ -26,7 +26,8 @@ const payload = {
     "https://www.movingnerds.ca/areas/beaverbank",
     "https://www.movingnerds.ca/areas/fall-river",
     "https://www.movingnerds.ca/areas/herring-cove",
-    "https://www.movingnerds.ca/appointment"
+    "https://www.movingnerds.ca/appointment",
+    "https://www.movingnerds.ca/areas/lower-sackville",
   ],
 };
 
