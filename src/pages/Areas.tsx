@@ -75,7 +75,7 @@ export default function Area() {
       <section
         className="relative min-h-[42vh] flex items-end"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('${area.heroImage || "/dashboardmovingnerds.jpg"}')`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('${area.heroImage || "/dashboard/movingnerds.jpg"}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

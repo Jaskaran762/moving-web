@@ -7,8 +7,8 @@ import { Helmet } from 'react-helmet-async';
 import { Link } from 'react-router-dom';
 
 const ServiceList = () => {
-  const canonical = 'https:movingnerds.ca/services';
-  const heroImage = 'https:movingnerds.ca/dashboardmovingnerds.jpg';
+  const canonical = 'https://movingnerds.ca/services';
+  const heroImage = 'https://movingnerds.ca/dashboard/movingnerds.jpg';
 
   const serviceLinks = [
     { name: 'Residential Moving', slug: 'residential-moving' },

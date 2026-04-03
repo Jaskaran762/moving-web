@@ -110,6 +110,11 @@ const Index = () => {
           content="Moving Nerds provides fast, fully insured moving services in Halifax & HRM. Residential, commercial, and same-day service available. Get a free quote today!"
         />
         <link rel="canonical" href="https://movingnerds.ca/" />
+        <link
+          rel="preload"
+          as="image"
+          href="/dashboard/movingnerds.jpg"
+        />
 
         {/* OG/Twitter for the homepage only */}
         <meta property="og:type" content="website" />
@@ -117,13 +122,13 @@ const Index = () => {
         <meta property="og:title" content="Moving Nerds | Professional Movers in Halifax & HRM" />
         <meta property="og:description" content="Fast, fully insured moving service in Halifax & HRM. Residential and commercial moves. Free quotes. Call (902) 412-8566." />
         <meta property="og:url" content="https://movingnerds.ca/" />
-        <meta property="og:image" content="https://movingnerds.ca/dashboardmovingnerds.jpg" />
+        <meta property="og:image" content="https://movingnerds.ca/dashboard/movingnerds.jpg" />
         <meta property="og:locale" content="en_CA" />
 
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Moving Nerds | Professional Movers in Halifax & HRM" />
         <meta name="twitter:description" content="Free quotes. Secure transport. Call (902) 412-8566." />
-        <meta name="twitter:image" content="https://movingnerds.ca/dashboardmovingnerds.jpg" />
+        <meta name="twitter:image" content="https://movingnerds.ca/dashboard/movingnerds.jpg" />
       </Helmet>
       <Header />
 

@@ -166,7 +166,7 @@ const ServiceDetail = () => {
 
               {service.gallery?.length ? (
                 <div>
-                  <h2 className="text-xl font-semibold text-gray-900 mb-3">Before & after</h2>
+                  <h2 className="text-xl font-semibold text-gray-900 mb-3">Gallery</h2>
                   <Gallery images={service.gallery} title={service.title} />
                 </div>
               ) : null}

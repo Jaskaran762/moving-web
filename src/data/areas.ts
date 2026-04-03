@@ -110,7 +110,7 @@ const NEIGHBOURHOODS: Record<string, string[]> = {
   "Herring Cove": ["Purdy's Wharf? (kidding) - Herring Cove Village"],
 };
 
-const hero = "/dashboardmovingnerds.jpg";
+const hero = "/dashboard/movingnerds.jpg";
 
 const buildArea = (name: string): Area => {
   const slug = slugify(name);
