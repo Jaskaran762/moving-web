@@ -25,7 +25,7 @@ const Index = () => {
 
   const { rating, userRatingCount, loading } = useReviewsContext();
 
-  // Effect #1: just observes; flips the flag when stats section enters viewport
+  // Effect #1: flips the flag when stats section enters viewport
   useEffect(() => {
     if (hasAnimated) return;
     const node = statsRef.current;
@@ -44,7 +44,7 @@ const Index = () => {
     return () => observer.disconnect();
   }, [hasAnimated]);
 
-  // Effect #2: starts counters when hasAnimated becomes true
+  // Effect #2: starts counters
   useEffect(() => {
     if (!hasAnimated) return;
 
@@ -52,7 +52,6 @@ const Index = () => {
       typeof window !== 'undefined' &&
       window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
 
-    // Target values for a believable startup moving company
     const TARGET_JOBS = 150;
     const TARGET_RESPONSE = 2;
     const TARGET_SATISFACTION = 99;
@@ -82,7 +81,7 @@ const Index = () => {
         }
         return prev + 1;
       });
-    }, 400); // Slower interval for smaller numbers
+    }, 400);
 
     const i3 = window.setInterval(() => {
       setSatisfaction((prev) => {
@@ -110,13 +109,15 @@ const Index = () => {
           content="Moving Nerds provides fast, fully insured moving services in Halifax & HRM. Residential, commercial, and same-day service available. Get a free quote today!"
         />
         <link rel="canonical" href="https://movingnerds.ca/" />
+        
+        {/* CRITICAL: Preload the LCP Image with High Priority */}
         <link
           rel="preload"
           as="image"
           href="/dashboard/movingnerds.jpg"
+          fetchPriority="high"
         />
 
-        {/* OG/Twitter for the homepage only */}
         <meta property="og:type" content="website" />
         <meta property="og:site_name" content="Moving Nerds" />
         <meta property="og:title" content="Moving Nerds | Professional Movers in Halifax & HRM" />
@@ -130,38 +131,34 @@ const Index = () => {
         <meta name="twitter:description" content="Free quotes. Secure transport. Call (902) 412-8566." />
         <meta name="twitter:image" content="https://movingnerds.ca/dashboard/movingnerds.jpg" />
       </Helmet>
+
       <Header />
 
-      {/* Hero Section */}
-      <section
-        className="relative min-h-screen flex flex-col justify-between bg-white"
-        style={{
-          backgroundImage: `
-      linear-gradient(135deg, rgba(240,253,244,.10), rgba(239,246,255,.10)),
-      url('/dashboard/movingnerds.jpg')
-    `,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-        }}
-      >
+      {/* Hero Section - Optimized with img tag instead of CSS background */}
+      <section className="relative min-h-screen flex flex-col justify-between overflow-hidden bg-gray-900">
+        
+        {/* Background Image Element - Loads faster than CSS url() */}
+        <img 
+          src="/dashboard/movingnerds.jpg" 
+          alt="Moving Nerds truck in Halifax"
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
+        />
 
-        {/* Overlay - Fixed blur class and darkened slightly */}
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-none" />
+        {/* Overlay - Gradient for better text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/80 via-black/50 to-transparent" />
 
         {/* Content Wrapper */}
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex items-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex items-center">
           <div className="grid lg:grid-cols-2 gap-12 justify-items-start w-full">
-
-            {/* Added lg:-ml-[10%] to pull this block 10% further left on large screens */}
             <div className="w-full lg:-ml-[10%]">
-
-              {/* Added drop-shadow-lg for better text separation */}
               <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
                 Fast & Reliable
                 <span className="text-4xl lg:text-6xl text-white block"> Moving Service</span>
               </h1>
-              <p className="text-white text-lg sm:text-base font-semibold mb-3 drop-shadow-md tracking-wide content-center">
+              <p className="text-white text-lg sm:text-base font-semibold mb-3 drop-shadow-md tracking-wide">
                 Your trusted Halifax moving team! We handle full-home relocations, apartments, and commercial moves.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
@@ -188,14 +185,12 @@ const Index = () => {
         </div>
 
         {/* Promo Banner at Bottom */}
-        <div className="w-full flex flex-col items-center justify-center pb-8 px-4 sm:px-6">
-          {/* New Text Above Button */}
-          <p className="text-white text-sm sm:text-base font-semibold mb-3 drop-shadow-md tracking-wide">
+        <div className="relative z-10 w-full flex flex-col items-center justify-center pb-8 px-4 sm:px-6">
+          <p className="text-white text-sm sm:text-base font-semibold mb-3 drop-shadow-md tracking-wide text-center">
             Ready for a stress-free move? Lock in your date today!
           </p>
 
           <div className="relative inline-block w-full max-w-md rounded-xl overflow-hidden">
-            {/* Soft pulse background */}
             <div
               className="pointer-events-none absolute inset-0 rounded-xl bg-orange-400/40 animate-ping"
               aria-hidden
@@ -205,12 +200,10 @@ const Index = () => {
                       text-[clamp(1rem,4vw,1.5rem)]
                       px-4 py-3 sm:px-8 sm:py-4
                       rounded-xl shadow-xl text-center leading-tight">
-                {/* Mobile: stack text on two lines */}
                 <span className="sm:hidden block">Book Online</span>
                 <span className="sm:hidden block">
                   Get <span className="text-orange-600">10% OFF!</span>
                 </span>
-                {/* Desktop: single line */}
                 <span className="hidden sm:inline">
                   Book Online & Get <span className="text-orange-600">10% OFF!</span>
                 </span>
@@ -220,35 +213,21 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why Choose Moving Nerds Section */}
+      {/* Why Choose Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-start">
-          {/* Why Choose Moving Nerds */}
           <div className="relative">
             <div className="bg-white rounded-2xl shadow-2xl p-8">
               <div className="text-center mb-6">
                 <Truck className="h-16 w-16 text-orange-600 mx-auto mb-4" />
                 <h3 className="text-2xl font-bold text-gray-900">Why Choose Moving Nerds?</h3>
               </div>
-
               <div className="space-y-4">
                 {[
-                  {
-                    title: 'Flexible & Same-Day Moves',
-                    desc: 'Quick response for urgent and last-minute relocations'
-                  },
-                  {
-                    title: 'Fully Licensed & Insured',
-                    desc: 'Your belongings and home are completely protected'
-                  },
-                  {
-                    title: 'Expert Handling',
-                    desc: 'Professional wrapping, packing, and secure transport'
-                  },
-                  {
-                    title: 'Transparent Pricing',
-                    desc: 'Accurate, upfront estimates with no hidden fees'
-                  },
+                  { title: 'Flexible & Same-Day Moves', desc: 'Quick response for urgent and last-minute relocations' },
+                  { title: 'Fully Licensed & Insured', desc: 'Your belongings and home are completely protected' },
+                  { title: 'Expert Handling', desc: 'Professional wrapping, packing, and secure transport' },
+                  { title: 'Transparent Pricing', desc: 'Accurate, upfront estimates with no hidden fees' },
                 ].map((f, idx) => (
                   <div key={idx} className="flex items-start space-x-3">
                     <CheckCircle className="h-6 w-6 text-orange-500 mt-0.5" />
@@ -262,27 +241,16 @@ const Index = () => {
             </div>
           </div>
 
-          {/* How It Works */}
           <div className="relative">
             <div className="bg-white rounded-2xl shadow-2xl p-8">
               <div className="text-center mb-6">
                 <h3 className="text-2xl font-bold text-gray-900">How It Works</h3>
               </div>
-
               <div className="space-y-6">
                 {[
-                  {
-                    step: '1. Book Online or Call',
-                    desc: 'Schedule your move easily with our simple booking form'
-                  },
-                  {
-                    step: '2. Get an Estimate',
-                    desc: 'We provide a clear, upfront moving quote with no surprises'
-                  },
-                  {
-                    step: '3. We Handle the Move',
-                    desc: 'Our expert crew safely loads, transports, and unloads your belongings'
-                  },
+                  { step: '1. Book Online or Call', desc: 'Schedule your move easily with our simple booking form' },
+                  { step: '2. Get an Estimate', desc: 'We provide a clear, upfront moving quote with no surprises' },
+                  { step: '3. We Handle the Move', desc: 'Our expert crew safely loads, transports, and unloads your belongings' },
                 ].map((s, idx) => (
                   <div key={idx} className="flex items-start space-x-3">
                     <CheckCircle className="h-6 w-6 text-orange-500 mt-0.5" />
@@ -295,7 +263,6 @@ const Index = () => {
               </div>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -323,12 +290,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services anchor */}
       <section id="services">
         <Services />
       </section>
 
-      {/* Appointment anchor */}
       <section id="appointment">
         <AppointmentForm />
       </section>
