@@ -40,5 +40,5 @@ export const residentialMovingService: Service = {
     { q: 'How are my items protected?', a: 'We use professional-grade moving blankets, shrink wrap, and floor runners to protect both your items and your property.' },
     { q: 'Do I need to empty my dressers?', a: 'We recommend removing heavy items, breakables, and valuables. Lightweight clothing can usually stay in the drawers.' },
   ],
-  areas: ['Halifax', 'Dartmouth', 'Bedford', 'Clayton Park', 'Spryfield', 'Cole Harbour', 'Hammonds Plains', 'Eastern Passage', 'Timberlea', 'Beaverbank', 'Downtown Halifax', 'Fall River'],
+  areas: ['Halifax', 'Dartmouth', 'Bedford', 'Clayton Park', 'Spryfield', 'Cole Harbour', 'Hammonds Plains', 'Eastern Passage', 'Timberlea', 'Beaverbank', 'Downtown Halifax', 'Fall River', 'Herring Cove', 'Upper Tantallon', 'Lake Echo', 'Porter\'s Lake', 'North Preston', 'East Preston', 'Lower Sackville', 'Middle Sackville', 'Upper Sackville'],
 };

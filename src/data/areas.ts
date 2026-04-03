@@ -63,7 +63,9 @@ const names = [
   "Downtown Halifax",
   "Dartmouth",
   "Bedford",
-  "Lower Sackville", // Added missing HRM hub
+  "Lower Sackville",
+  "Middle Sackville",
+  "Upper Sackville",
   "Clayton Park",
   "Spryfield",
   "Cole Harbour",
@@ -73,6 +75,11 @@ const names = [
   "Beaverbank",
   "Fall River",
   "Herring Cove",
+  "Upper Tantallon",
+  "Lake Echo",
+  "Porter's Lake",
+  "North Preston",
+  "East Preston",
 ];
 
 // Custom moving-focused blurbs per area
@@ -82,6 +89,8 @@ const BLURBS: Record<string, string> = {
   "Dartmouth": "Expert residential and commercial moving from Woodside to Burnside. We make crossing the bridge stress-free.",
   "Bedford": "Premium moving services with transparent pricing. Professional, uniformed crews that treat your belongings like their own.",
   "Lower Sackville": "Efficient and affordable moving services for families and businesses throughout Sackville and surrounding areas.",
+  "Middle Sackville": "Professional moving services for residential homes and estates in Middle Sackville.",
+  "Upper Sackville": "Efficient estate moves and full-home relocations for the Upper Sackville community.",
   "Clayton Park": "Apartment and house moves handled efficiently. We specialize in safe furniture handling and stairway navigation.",
   "Spryfield": "Your trusted local movers for Spryfield. Top-notch service, careful packing, and affordable rates.",
   "Cole Harbour": "Stress-free relocations in Cole Harbour. We provide full-service packing, moving, and unpacking.",
@@ -91,6 +100,11 @@ const BLURBS: Record<string, string> = {
   "Beaverbank": "Dependable family-home moving. We pad and shrink-wrap your furniture for maximum protection during transit.",
   "Fall River": "Whole-home moves with flexible scheduling. Experienced crews equipped for large properties and long driveways.",
   "Herring Cove": "Careful coastal community moving. We handle narrow roads and tricky access with professional ease.",
+  "Upper Tantallon": "Serving the St. Margarets Bay area with fast, careful, and fully insured moving services.",
+  "Lake Echo": "Quick and easy local moving for Lake Echo and surrounding rural communities.",
+  "Porter's Lake": "From single-item transport to full household moves, we provide reliable moving across Porter's Lake and Highway 7.",
+  "North Preston": "Local, community-focused moving services offering transparent pricing and careful handling.",
+  "East Preston": "Efficient moving services for the East Preston area—professional, insured, and reliable.",
 };
 
 const NEIGHBOURHOODS: Record<string, string[]> = {
@@ -99,6 +113,8 @@ const NEIGHBOURHOODS: Record<string, string[]> = {
   "Dartmouth": ["Woodside", "Burnside", "Portland Hills", "Russell Lake"],
   "Bedford": ["Bedford West", "Shore Drive", "Bedford South"],
   "Lower Sackville": ["First Lake", "Glendale", "Millwood", "Sackville Estates"],
+  "Middle Sackville": ["Millwood", "Twin Brooks", "Indigo Shores"],
+  "Upper Sackville": ["Sackville Estates", "Lisgar Drive"],
   "Clayton Park": ["Clayton Park West", "Rockingham"],
   "Spryfield": ["Thornhill", "Leiblin Park", "Herring Cove Rd"],
   "Cole Harbour": ["Forest Hills", "Colby Village"],
@@ -108,6 +124,11 @@ const NEIGHBOURHOODS: Record<string, string[]> = {
   "Beaverbank": ["Kinsac", "Monarch Estates"],
   "Fall River": ["Waverley", "Schwartzwald", "St. Andrews Village"],
   "Herring Cove": ["Purdy's Wharf? (kidding) - Herring Cove Village"],
+  "Upper Tantallon": ["Westwood Hills", "Hubley"],
+  "Lake Echo": ["Ponderosa Estate", "Mineville", "Echo Forest"],
+  "Porter's Lake": ["Lakeview Estate", "Alpine Drive", "Seven Lakes"],
+  "North Preston": ["Simmonds Road", "Johnson Road"],
+  "East Preston": ["Cherry Brook", "Lake Major"],
 };
 
 const hero = "/dashboard/movingnerds.jpg";

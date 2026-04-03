@@ -40,5 +40,5 @@ export const specialtyItemsService: Service = {
     { q: 'Is there an extra fee for heavy items?', a: 'Yes, exceptionally heavy items (like safes or pianos) carry a heavy-item surcharge to account for the specialized equipment and extra crew members required.' },
     { q: 'Will you protect my hardwood floors?', a: 'Absolutely. We use neoprene floor runners, plywood sheets (if necessary for extremely heavy items), and rubber-wheeled dollies to prevent scuffs and scratches.' },
   ],
-  areas: ['Halifax', 'Dartmouth', 'Bedford', 'Clayton Park', 'Spryfield', 'Cole Harbour', 'Hammonds Plains', 'Eastern Passage', 'Timberlea', 'Beaverbank', 'Downtown Halifax', 'Fall River'],
+  areas: ['Halifax', 'Dartmouth', 'Bedford', 'Clayton Park', 'Spryfield', 'Cole Harbour', 'Hammonds Plains', 'Eastern Passage', 'Timberlea', 'Beaverbank', 'Downtown Halifax', 'Fall River', 'Herring Cove', 'Upper Tantallon', 'Lake Echo', 'Porter\'s Lake', 'North Preston', 'East Preston', 'Lower Sackville', 'Middle Sackville', 'Upper Sackville'],
 };

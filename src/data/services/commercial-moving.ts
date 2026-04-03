@@ -40,5 +40,5 @@ export const commercialMovingService: Service = {
     { q: 'Do you disassemble and reassemble cubicles?', a: 'Yes, our team is equipped with the tools and experience to handle standard office partitions and cubicle systems.' },
     { q: 'Are you fully insured for commercial buildings?', a: 'Yes, we carry comprehensive commercial liability insurance and can provide a Certificate of Insurance (COI) to your property manager.' },
   ],
-  areas: ['Halifax', 'Dartmouth', 'Bedford', 'Clayton Park', 'Spryfield', 'Cole Harbour', 'Hammonds Plains', 'Eastern Passage', 'Timberlea', 'Beaverbank', 'Downtown Halifax', 'Fall River'],
+  areas: ['Halifax', 'Dartmouth', 'Bedford', 'Clayton Park', 'Spryfield', 'Cole Harbour', 'Hammonds Plains', 'Eastern Passage', 'Timberlea', 'Beaverbank', 'Downtown Halifax', 'Fall River', 'Herring Cove', 'Upper Tantallon', 'Lake Echo', 'Porter\'s Lake', 'North Preston', 'East Preston', 'Lower Sackville', 'Middle Sackville', 'Upper Sackville'],
 };

@@ -39,5 +39,5 @@ export const longDistanceMovingService: Service = {
     { q: 'How is pricing determined for long distance?', a: 'Pricing is typically based on the total weight/volume of your belongings and the distance traveled. We provide a firm quote before loading.' },
     { q: 'How long will the delivery take?', a: 'Because we use dedicated trucks, delivery is usually direct and happens within 1 to 3 days depending on the final maritime destination.' },
   ],
-  areas: ['Halifax', 'Dartmouth', 'Bedford', 'Clayton Park', 'Spryfield', 'Cole Harbour', 'Hammonds Plains', 'Eastern Passage', 'Timberlea', 'Beaverbank', 'Downtown Halifax', 'Fall River'],
+  areas: ['Halifax', 'Dartmouth', 'Bedford', 'Clayton Park', 'Spryfield', 'Cole Harbour', 'Hammonds Plains', 'Eastern Passage', 'Timberlea', 'Beaverbank', 'Downtown Halifax', 'Fall River', 'Herring Cove', 'Upper Tantallon', 'Lake Echo', 'Porter\'s Lake', 'North Preston', 'East Preston', 'Lower Sackville', 'Middle Sackville', 'Upper Sackville'],
 };
