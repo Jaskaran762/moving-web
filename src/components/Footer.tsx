@@ -37,7 +37,7 @@ const Footer = () => {
             </div>*/}
           </div>
 
-          {/* Services */}
+          {/* Services & Partners */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-gray-300">
@@ -45,6 +45,23 @@ const Footer = () => {
               <li><Link to="/services/commercial-moves" className="hover:text-white">Commercial Moves</Link></li>
               <li><Link to="/services/long-distance-moving" className="hover:text-white">Long-Distance Moving</Link></li>
               <li><Link to="/services/specialty-items" className="hover:text-white">Specialty Items</Link></li>
+            </ul>
+
+            {/* Added Partner Section Here */}
+            <h3 className="text-lg font-semibold mt-8 mb-4 text-gray-400">Our Partners</h3>
+            <ul className="space-y-2 text-gray-300">
+              <li>
+                <a 
+                  href="https://junknerds.ca" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="inline-flex items-center text-orange-400 hover:text-orange-300 transition-colors"
+                >
+                  <span className="mr-2">
+                    <Truck className="h-6 w-6 text-green-400" />
+                  </span> JunkNerds
+                </a>
+              </li>
             </ul>
           </div>
 

@@ -42,7 +42,7 @@ const AppointmentForm = () => {
   const [isFetching, setIsFetching] = useState(false);
   const [dateOpen, setDateOpen] = useState(false);
   
-  // NEW: Track which address field is currently being typed in
+  // Track which address field is currently being typed in
   const [activeAddressField, setActiveAddressField] = useState<'address' | 'destinationAddress' | null>(null);
 
   const updateField = (field: string, value: string) => {
@@ -54,13 +54,15 @@ const AppointmentForm = () => {
     return new Date(y, m - 1, d);
   };
 
-  // UPDATED: Fetch suggestions based on the active field
+  // Fetch suggestions based on the active field
   useEffect(() => {
     const fetchSuggestions = async () => {
       if (!activeAddressField) return;
 
       const query = formData[activeAddressField].trim();
-      if (query.length < 2) {
+      
+      // Wait until they've typed at least 3 characters
+      if (query.length < 3) {
         setAddressSuggestions([]);
         return;
       }
@@ -68,23 +70,33 @@ const AppointmentForm = () => {
       setIsFetching(true);
       try {
         const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
-          query + ' Nova Scotia Canada'
+          query + ', Nova Scotia, Canada'
         )}&format=json&limit=5`;
 
         const res = await fetch(url, {
           headers: { 'User-Agent': 'MovingNerdsApp/1.0 (movingnerds.ca)' },
         });
 
+        if (!res.ok) throw new Error("Rate limited or server error");
+
         const data = await res.json();
-        setAddressSuggestions(data);
+        
+        // Handle empty results gracefully
+        if (data.length === 0) {
+           setAddressSuggestions([{ place_id: 'none', display_name: 'No exact matches found. Keep typing or enter manually.' }]);
+        } else {
+           setAddressSuggestions(data);
+        }
       } catch (err) {
         console.error('Error fetching address suggestions:', err);
+        setAddressSuggestions([]);
       } finally {
         setIsFetching(false);
       }
     };
 
-    const timeout = setTimeout(fetchSuggestions, 300);
+    // 800ms debounce to prevent hitting OpenStreetMap API rate limits
+    const timeout = setTimeout(fetchSuggestions, 800);
     return () => clearTimeout(timeout);
   }, [formData.address, formData.destinationAddress, activeAddressField]);
 
@@ -254,11 +266,17 @@ const AppointmentForm = () => {
                         <li
                           key={s.place_id}
                           onClick={() => {
-                            updateField('address', s.display_name);
+                            if (s.place_id !== 'none') {
+                              updateField('address', s.display_name);
+                            }
                             setAddressSuggestions([]);
                             setActiveAddressField(null);
                           }}
-                          className={`px-3 py-2 cursor-pointer text-sm hover:bg-orange-50 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-200'}`}
+                          className={`px-3 py-2 text-sm ${
+                            s.place_id !== 'none' 
+                              ? 'cursor-pointer hover:bg-orange-50' 
+                              : 'cursor-default text-gray-500 italic'
+                          } ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
                         >
                           {s.display_name}
                         </li>
@@ -294,11 +312,17 @@ const AppointmentForm = () => {
                         <li
                           key={s.place_id}
                           onClick={() => {
-                            updateField('destinationAddress', s.display_name);
+                            if (s.place_id !== 'none') {
+                              updateField('destinationAddress', s.display_name);
+                            }
                             setAddressSuggestions([]);
                             setActiveAddressField(null);
                           }}
-                          className={`px-3 py-2 cursor-pointer text-sm hover:bg-orange-50 ${i % 2 === 0 ? 'bg-white' : 'bg-gray-200'}`}
+                          className={`px-3 py-2 text-sm ${
+                            s.place_id !== 'none' 
+                              ? 'cursor-pointer hover:bg-orange-50' 
+                              : 'cursor-default text-gray-500 italic'
+                          } ${i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}`}
                         >
                           {s.display_name}
                         </li>

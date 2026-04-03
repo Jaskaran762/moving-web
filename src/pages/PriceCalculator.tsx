@@ -12,7 +12,7 @@ import { Helmet } from "react-helmet-async";
 // ------------------------------------------------------------
 // Price model: Hourly Moving
 // ------------------------------------------------------------
-const HOURLY_RATE = 150;
+const HOURLY_RATE = 100;
 const MIN_HOURS = 3;
 const HST_RATE = 0.14;
 
