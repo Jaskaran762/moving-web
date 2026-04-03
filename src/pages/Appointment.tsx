@@ -45,7 +45,7 @@ const Appointment = () => {
         <title>Book Moving in Halifax | Free Quote | Moving Nerds Appointment</title>
         <meta
           name="description"
-          content="Book your moving service appointment in Halifax and HRM. Same-day pickup, free quotes, insured and eco-friendly. Call (902) 412-8566 or book online."
+          content="Same-day moving service appointments in Halifax & all over HRM. Free quotes and transparent pricing."
         />
         <link rel="canonical" href={canonical} />
         <meta property="og:type" content="website" />

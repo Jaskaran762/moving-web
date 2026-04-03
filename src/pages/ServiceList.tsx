@@ -10,7 +10,7 @@ const ServiceList = () => {
   const canonical = 'https:movingnerds.ca/services';
   const heroImage = 'https:movingnerds.ca/dashboardmovingnerds.jpg';
 
-const serviceLinks = [
+  const serviceLinks = [
     { name: 'Residential Moving', slug: 'residential-moving' },
     { name: 'Commercial Moves', slug: 'commercial-moves' },
     { name: 'Long-Distance Moving', slug: 'long-distance-moving' },
@@ -42,31 +42,33 @@ const serviceLinks = [
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>Moving Services in Halifax | Furniture, Appliances, Yard Waste | Moving Nerds</title>
+        <title>Moving Services in Halifax | Residential & Commercial | Moving Nerds</title>
         <meta
           name="description"
-          content="Explore Moving Nerds services in Halifax & HRM: furniture removal, appliance pickup, e-waste recycling, yard waste, construction debris cleanup, and full property cleanouts."
+          content="Explore Moving Nerds services in Halifax & HRM: residential moves, commercial office relocations, long-distance transport, professional packing, and specialty item handling."
         />
         <link rel="canonical" href={canonical} />
+
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Moving Services in Halifax | Moving Nerds" />
         <meta
           property="og:description"
-          content="Transparent pricing, insured crews, and eco-friendly disposal. Book online for a free quote."
+          content="Transparent pricing, fully insured crews, and stress-free transport of your belongings. Book online for a free quote."
         />
         <meta property="og:url" content={canonical} />
         <meta property="og:image" content={heroImage} />
+
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="Moving Services in Halifax | Moving Nerds" />
         <meta
           name="twitter:description"
-          content="From furniture to renovation debris-see all our services and book a free quote."
+          content="From studio apartments to full office relocations—see all our moving services and book a free quote."
         />
         <meta name="twitter:image" content={heroImage} />
+
         <script type="application/ld+json">{JSON.stringify(ldBreadcrumbs)}</script>
         <script type="application/ld+json">{JSON.stringify(ldItemList)}</script>
       </Helmet>
-
       <Header />
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -81,9 +83,9 @@ const serviceLinks = [
             <h1 className="text-2xl font-bold tracking-tight text-gray-900">Moving Services</h1>
 
             <p className="text-sm text-gray-600 mt-2">
-              We handle residential relocations, commercial office moves, professional packing, long-distance transport, 
+              We handle residential relocations, commercial office moves, professional packing, long-distance transport,
               and specialty item handling across Halifax Regional Municipality. Transparent pricing, fully insured crews,
-               and stress-free transport of your belongings.{" "}
+              and stress-free transport of your belongings.{" "}
               <Link to="/appointment" className="text-orange-700 font-medium hover:underline">
                 Book a free quote
               </Link>{" "}
