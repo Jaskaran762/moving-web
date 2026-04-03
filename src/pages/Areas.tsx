@@ -10,7 +10,7 @@ import { AREAS, getAreaBySlug, getAllAreaLinks } from "@/data/areas";
 import { CheckCircle, MapPin, Phone } from "lucide-react";
 
 const Dot = () => (
-  <span className="mt-1.5 h-2 w-2 rounded-full bg-emerald-500 shrink-0" aria-hidden />
+  <span className="mt-1.5 h-2 w-2 rounded-full bg-orange-500 shrink-0" aria-hidden />
 );
 
 export default function Area() {
@@ -44,7 +44,7 @@ export default function Area() {
     );
   }
 
-  const canonical = `https://junknerds.ca/areas/${area.slug}`;
+  const canonical = `https://movingnerds.ca/areas/${area.slug}`;
 
   return (
     <div className="min-h-screen bg-white">
@@ -59,13 +59,13 @@ export default function Area() {
         <script type="application/ld+json">{JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Service",
-          "name": `Junk removal in ${area.name}`,
+          "name": `Moving Services in ${area.name}`,
           "areaServed": area.name,
-          "provider": { "@id": "https://junknerds.ca/#localbusiness" },
+          "provider": { "@id": "https://movingnerds.ca/#localbusiness" },
           "offers": area.services.map((s: string) => ({
             "@type": "Offer",
             "itemOffered": { "@type": "Service", "name": s },
-            "url": `https://junknerds.ca/areas/${area.slug}`
+            "url": `https://movingnerds.ca/areas/${area.slug}`
           }))
         })}</script>
       </Helmet>
@@ -75,25 +75,25 @@ export default function Area() {
       <section
         className="relative min-h-[42vh] flex items-end"
         style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('${area.heroImage || "/dashboard/junknerds.jpg"}')`,
+          backgroundImage: `linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)), url('${area.heroImage || "/dashboardmovingnerds.jpg"}')`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
           <h1 className="text-3xl md:text-5xl font-extrabold text-white">
-            {area.name} Junk Removal
+            {area.name} Moving
           </h1>
           <p className="text-white/90 mt-3 max-w-3xl">{area.blurb}</p>
 
           <div className="mt-6 flex flex-wrap gap-3">
-            <Button asChild className="bg-emerald-600 hover:bg-emerald-700">
+            <Button asChild className="bg-orange-600 hover:bg-orange-700">
               <a href="#appointment">Book Online</a>
             </Button>
-            <Button asChild variant="outline" className="bg-emerald-600 text-white hover:bg-white/10">
+            <Button asChild variant="outline" className="bg-orange-600 text-white hover:bg-white/10">
               <a href="tel:+19024128566"><Phone className="h-4 w-4 mr-2" /> (902) 412-8566</a>
             </Button>
-            <Button asChild className="bg-emerald-600 hover:bg-emerald-700">
+            <Button asChild className="bg-orange-600 hover:bg-orange-700">
               <Link to="/price-calculator">Price Calculator</Link>
             </Button>
             {/* <Button asChild variant="secondary">
@@ -110,14 +110,14 @@ export default function Area() {
         <div className="grid lg:grid-cols-3 gap-8">
           <Card className="lg:col-span-2">
             <CardHeader>
-              <CardTitle>What we take</CardTitle>
+              <CardTitle>What we move</CardTitle>
               <p className="text-sm text-gray-600">
-                Eco-friendly disposal and donation wherever possible.
+                Expert packing, heavy lifting, and careful transport for all your belongings.
               </p>
             </CardHeader>
             <CardContent>
               <ul className="grid sm:grid-cols-2 gap-2">
-                {area.itemsWeTake.map((item) => (
+                {area.itemsWeMove.map((item) => (
                   <li key={item} className="flex items-start gap-2 text-gray-700 leading-6">
                     <Dot /> <span>{item}</span>
                   </li>
@@ -134,7 +134,7 @@ export default function Area() {
               <ul className="space-y-2">
                 {area.services.map((s) => (
                   <li key={s} className="flex items-start gap-2">
-                    <CheckCircle className="h-5 w-5 text-emerald-600 mt-0.5" />
+                    <CheckCircle className="h-5 w-5 text-orange-600 mt-0.5" />
                     <span className="text-gray-800">{s}</span>
                   </li>
                 ))}
@@ -200,10 +200,10 @@ export default function Area() {
         {/* Appointment */}
         <section id="appointment">
           <Card className="overflow-hidden">
-            <CardHeader className="border-b bg-gradient-to-r from-emerald-50 to-white">
-              <CardTitle>Get your free quote in {area.name}</CardTitle>
+            <CardHeader className="border-b bg-gradient-to-r from-orange-50 to-white">
+              <CardTitle>Get your free moving quote in {area.name}</CardTitle>
               <p className="text-sm text-gray-600">
-                Book online for priority scheduling. Final pricing confirmed on site.
+                Book online for priority scheduling and a free, no-obligation estimate.
               </p>
             </CardHeader>
             <CardContent className="p-6">

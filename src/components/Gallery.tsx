@@ -85,7 +85,7 @@ export function Gallery({ images, title }: GalleryProps) {
             key={i}
             aria-label={`Go to slide ${i + 1}`}
             onClick={() => emblaApi?.scrollTo(i)}
-            className={`h-1.5 rounded-full transition-all ${i === selected ? 'w-6 bg-green-600' : 'w-3 bg-gray-300'}`}
+            className={`h-1.5 rounded-full transition-all ${i === selected ? 'w-6 bg-orange-600' : 'w-3 bg-gray-300'}`}
           />
         ))}
       </div>
@@ -96,7 +96,7 @@ export function Gallery({ images, title }: GalleryProps) {
           <button
             key={src}
             onClick={() => emblaApi?.scrollTo(i)}
-            className={`relative h-16 w-24 flex-shrink-0 overflow-hidden rounded-lg ring-2 transition ${i === selected ? 'ring-green-600' : 'ring-transparent'}`}
+            className={`relative h-16 w-24 flex-shrink-0 overflow-hidden rounded-lg ring-2 transition ${i === selected ? 'ring-orange-600' : 'ring-transparent'}`}
           >
             <img src={src} alt={`${title} thumbnail ${i + 1}`} className="h-full w-full object-cover" />
           </button>

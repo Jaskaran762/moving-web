@@ -5,7 +5,7 @@
 
   <!-- Home -->
   <url>
-    <loc>https://junknerds.ca/</loc>
+    <loc>https:movingnerds.ca/</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
@@ -13,7 +13,7 @@
 
   <!-- Price Calculator -->
   <url>
-    <loc>https://junknerds.ca/price-calculator</loc>
+    <loc>https:movingnerds.ca/price-calculator</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -21,43 +21,43 @@
 
   <!-- Services -->
   <url>
-    <loc>https://junknerds.ca/services</loc>
+    <loc>https:movingnerds.ca/services</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/services/furniture-removal</loc>
+    <loc>https:movingnerds.ca/services/furniture-removal</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/services/appliance-pickup</loc>
+    <loc>https:movingnerds.ca/services/appliance-pickup</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/services/electronic-waste</loc>
+    <loc>https:movingnerds.ca/services/electronic-waste</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/services/construction-debris</loc>
+    <loc>https:movingnerds.ca/services/construction-debris</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/services/household-items</loc>
+    <loc>https:movingnerds.ca/services/household-items</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/services/yard-waste</loc>
+    <loc>https:movingnerds.ca/services/yard-waste</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
@@ -65,79 +65,79 @@
 
   <!-- Areas (monthly crawl) -->
   <url>
-    <loc>https://junknerds.ca/areas/halifax</loc>
+    <loc>https:movingnerds.ca/areas/halifax</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/areas/downtown-halifax</loc>
+    <loc>https:movingnerds.ca/areas/downtown-halifax</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/areas/dartmouth</loc>
+    <loc>https:movingnerds.ca/areas/dartmouth</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/areas/bedford</loc>
+    <loc>https:movingnerds.ca/areas/bedford</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/areas/clayton-park</loc>
+    <loc>https:movingnerds.ca/areas/clayton-park</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/areas/spryfield</loc>
+    <loc>https:movingnerds.ca/areas/spryfield</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/areas/cole-harbour</loc>
+    <loc>https:movingnerds.ca/areas/cole-harbour</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/areas/hammonds-plains</loc>
+    <loc>https:movingnerds.ca/areas/hammonds-plains</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/areas/eastern-passage</loc>
+    <loc>https:movingnerds.ca/areas/eastern-passage</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/areas/timberlea</loc>
+    <loc>https:movingnerds.ca/areas/timberlea</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/areas/beaverbank</loc>
+    <loc>https:movingnerds.ca/areas/beaverbank</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/areas/fall-river</loc>
+    <loc>https:movingnerds.ca/areas/fall-river</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://junknerds.ca/areas/herring-cove</loc>
+    <loc>https:movingnerds.ca/areas/herring-cove</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -145,7 +145,7 @@
 
   <!-- Appointment -->
   <url>
-    <loc>https://junknerds.ca/appointment</loc>
+    <loc>https:movingnerds.ca/appointment</loc>
     <lastmod>2025-08-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>

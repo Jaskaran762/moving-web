@@ -3,56 +3,42 @@ import { Link } from 'react-router-dom'
 import { Card, CardContent } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, Leaf, Shield, Sparkles, Truck } from 'lucide-react'
+import { ArrowRight, Package, Shield, Calculator, Truck } from 'lucide-react'
 
 const services = [
   {
-    category: 'Furniture Removal',
-    items: ['Sofas & sectionals', 'Mattresses', 'Tables & desks', 'Dressers & bookcases'],
-    emoji: '🛋️',
-    blurb: 'Careful, no-scratch removal with donation-first approach.',
-    image: '/services/furniture.jpg',
+    category: 'Residential Moving',
+    items: ['Full house & apartment moves', 'Furniture wrapping & padding', 'Loading & unloading', 'Packing & unpacking services'],
+    emoji: '🏠',
+    blurb: 'Careful handling and safe transport of your household belongings from start to finish.',
+    image: '/services/residential-moving.jpg', // Updated image path
   },
   {
-    category: 'Appliance Pickup',
-    items: ['Fridges & freezers', 'Washers & dryers', 'Stoves & ranges', 'Dishwashers'],
-    emoji: '🔌',
-    blurb: 'Heavy lifting handled. Pathway protection & recycling.',
-    image: '/services/appliance.jpg',
+    category: 'Commercial Moves',
+    items: ['Office furniture & cubicles', 'Secure IT equipment packing', 'Filing cabinets & archives', 'Minimal business downtime'],
+    emoji: '🏢',
+    blurb: 'Efficient and organized office relocations designed to get your team back to work faster.',
+    image: '/services/commercial-moving.jpg', // Updated image path
   },
   {
-    category: 'Electronic Waste',
-    items: ['TVs & monitors', 'Computers & laptops', 'Printers', 'Cables & routers'],
-    emoji: '💻',
-    blurb: 'Responsible e-waste processing and donation when possible.',
-    image: '/services/e-waste.jpg',
+    category: 'Long-Distance Moving',
+    items: ['Interprovincial transport', 'Dedicated moving trucks', 'Detailed inventory tracking', 'Secure transit & delivery'],
+    emoji: '🚚',
+    blurb: 'Reliable, safe, and stress-free transport for your belongings across long distances.',
+    image: '/services/long-distance-moving.jpg', // Updated image path
   },
   {
-    category: 'Construction Debris',
-    items: ['Drywall & lumber', 'Flooring', 'Doors & trim', 'Pallets & packaging'],
-    emoji: '🔨',
-    blurb: 'Post-reno cleanups with sweep-up included.',
-    image: '/services/debris.jpg',
+    category: 'Specialty Items',
+    items: ['Upright & grand pianos', 'Heavy duty safes', 'Antiques & fine art', 'Custom crating solutions'],
+    emoji: '🎹',
+    blurb: 'Specialized equipment and expert handling for your heaviest, most fragile, or valuable items.',
+    image: '/services/specialty-moving.jpg', // Updated image path
   },
-  {
-    category: 'Household Items',
-    items: ['Boxes & clutter', 'Small furniture', 'Garage cleanouts', 'Estate cleanouts'],
-    emoji: '📦',
-    blurb: 'Declutter quickly—label what stays and we do the rest.',
-    image: '/services/household.jpg',
-  },
-  {
-    category: 'Yard Waste',
-    items: ['Branches & brush', 'Leaves', 'Fence panels', 'Patio debris'],
-    emoji: '🌿',
-    blurb: 'Storm clean-ups, careful loading to protect lawns.',
-    image: '/services/yard.jpg',
-  },
-]
+];
 
 const features = [
-  { icon: <Truck className="h-5 w-5" />, label: 'Same Day' },
-  { icon: <Leaf className="h-5 w-5" />, label: 'Recycle & Donate' },
+  { icon: <Truck className="h-5 w-5" />, label: 'Secure transport' },
+  { icon: <Package className="h-5 w-5" />, label: 'Careful handling' },
 ]
 
 const slugify = (s: string) =>
@@ -96,9 +82,9 @@ const Services = () => {
     <section id="services" className="py-16 bg-gradient-to-b from-white to-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-3">What We Remove</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-3">What We Move</h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Single items to full-property cleanouts—professional, insured, and eco-friendly.
+            From single pieces to full-home relocations, we provide professional, fully insured, and careful handling.
           </p>
         </div>
 
@@ -108,20 +94,21 @@ const Services = () => {
             <div
               key={s.category}
               ref={el => (refs.current[i] = el)}
-              className={`transform transition-all duration-700 ease-out ${
-                visible[i] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+              className={`transform transition-all duration-700 ease-out ${visible[i] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
             >
               <Link
                 to={`/services/${slugify(s.category)}`}
-                className="group block aria-[current=page]:ring-2 aria-[current=page]:ring-green-600 rounded-2xl"
+                className="group block aria-[current=page]:ring-2 aria-[current=page]:ring-orange-600 rounded-2xl"
               >
                 <Card className="relative h-full overflow-hidden rounded-2xl border-gray-200 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
-                  <div className="aspect-[16/9] overflow-hidden rounded-b-none">
+                  <div className="aspect-[16/9] overflow-hidden rounded-b-none bg-white">
+                    {/* Added bg-white (optional) in case your image has transparent parts */}
                     <img
                       src={s.image}
                       alt={`${s.category} example`}
-                      className="h-full w-full object-cover transition group-hover:scale-105"
+                      // Changed 'object-cover' to 'object-contain' below
+                      className="h-full w-full object-contain transition group-hover:scale-105"
                       loading="lazy"
                     />
                   </div>
@@ -139,7 +126,7 @@ const Services = () => {
                     <ul className="mt-4 space-y-2">
                       {s.items.map(item => (
                         <li key={item} className="flex items-center text-gray-700">
-                          <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-green-500" />
+                          <span className="mr-2 inline-block h-1.5 w-1.5 rounded-full bg-orange-500" />
                           {item}
                         </li>
                       ))}
@@ -152,12 +139,12 @@ const Services = () => {
                           </span>
                         ))}
                       </div>
-                      <Button size="sm" className="bg-green-600 hover:bg-green-700">
+                      <Button size="sm" className="bg-orange-600 hover:bg-orange-700">
                         View details <ArrowRight className="ml-1 h-4 w-4" />
                       </Button>
                     </div>
                   </CardContent>
-                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-green-500 via-emerald-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-orange-500 via-orange-400 to-blue-400 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </Card>
               </Link>
             </div>
@@ -167,12 +154,24 @@ const Services = () => {
         {/* Feature strip */}
         <div className="grid md:grid-cols-3 gap-4">
           {[
-            { icon: <Sparkles className="h-6 w-6" />, title: 'Upfront, On-Site Quotes', copy: 'No surprises—pay after we load.' },
-            { icon: <Shield className="h-6 w-6" />, title: 'Property Protection', copy: 'Floors, walls, and elevators respected.' },
-            { icon: <Leaf className="h-6 w-6" />, title: 'Eco-Mindful', copy: 'We donate and recycle whenever possible.' },
+            {
+              icon: <Calculator className="h-6 w-6" />,
+              title: 'Transparent Pricing',
+              copy: 'No hidden fees or surprises. Get a clear, upfront estimate before moving day.'
+            },
+            {
+              icon: <Shield className="h-6 w-6" />,
+              title: 'Property Protection',
+              copy: 'We use moving blankets and floor runners to respect and protect your home.'
+            },
+            {
+              icon: <Truck className="h-6 w-6" />, // Or <FileCheck /> / <Award />
+              title: 'Fully Insured',
+              copy: 'Rest easy knowing your belongings are completely protected during transit.'
+            },
           ].map(f => (
             <div key={f.title} className="rounded-2xl border bg-white p-6 shadow-sm">
-              <div className="mb-2 text-green-600">{f.icon}</div>
+              <div className="mb-2 text-orange-600">{f.icon}</div>
               <h4 className="font-semibold text-gray-900">{f.title}</h4>
               <p className="text-gray-600">{f.copy}</p>
             </div>

@@ -61,8 +61,8 @@ export default function Reviews() {
     return {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
-      "name": "JunkNerds Halifax - Junk Removal",
-      "url": "https://junknerds.ca/",
+      "name": "Moving Nerds Halifax - Moving",
+      "url": "https:movingnerds.ca/",
       "aggregateRating": {
         "@type": "AggregateRating",
         "ratingValue": rating,
@@ -81,9 +81,9 @@ export default function Reviews() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <Card className="border-0 shadow-xl">
-          <CardHeader className="border-b bg-gradient-to-r from-emerald-50 to-white">
+          <CardHeader className="border-b bg-gradient-to-r from-orange-50 to-white">
             <CardTitle id="reviews-title" className="text-2xl flex items-center gap-2">
-              <Quote className="h-5 w-5 text-emerald-600" />
+              <Quote className="h-5 w-5 text-orange-600" />
               What customers are saying
             </CardTitle>
 
@@ -100,7 +100,7 @@ export default function Reviews() {
                       href={googleBusinessUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="text-emerald-700 hover:underline font-medium"
+                      className="text-orange-700 hover:underline font-medium"
                     >
                       Read on Google
                     </a>
@@ -162,7 +162,7 @@ export default function Reviews() {
                             loading="lazy"
                           />
                         ) : (
-                          <div className="h-10 w-10 rounded-full bg-emerald-100" />
+                          <div className="h-10 w-10 rounded-full bg-orange-100" />
                         )}
                         <div>
                           <div className="font-semibold text-gray-900" itemProp="author">
@@ -191,7 +191,7 @@ export default function Reviews() {
                             href={r.googleMapsUri}
                             target="_blank"
                             rel="noreferrer"
-                            className="text-sm text-emerald-700 hover:underline"
+                            className="text-sm text-orange-700 hover:underline"
                             aria-label="Read this review on Google"
                           >
                             View on Google
@@ -211,11 +211,11 @@ export default function Reviews() {
                   Ready to experience 5-star service?
                 </p>
                 <div className="flex gap-2">
-                  <Button asChild className="bg-green-600 hover:bg-green-700">
+                  <Button asChild className="bg-orange-600 hover:bg-orange-700">
                     <a href="/appointment">Book a free quote</a>
                   </Button>
                   {googleBusinessUrl ? (
-                    <Button asChild variant="outline" className="border-emerald-600 text-emerald-700">
+                    <Button asChild variant="outline" className="border-orange-600 text-orange-700">
                       <a href={googleBusinessUrl} target="_blank" rel="noreferrer">
                         Write a review
                       </a>

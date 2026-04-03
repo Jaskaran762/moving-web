@@ -17,12 +17,10 @@ const Header = () => {
 
   const areas = getAllAreaLinks(); // [{ name, slug }]
   const services = [
-    { name: 'Furniture Removal', slug: 'furniture-removal' },
-    { name: 'Appliance Pickup', slug: 'appliance-pickup' },
-    { name: 'Electronic Waste', slug: 'electronic-waste' },
-    { name: 'Construction Debris', slug: 'construction-debris' },
-    { name: 'Household Items', slug: 'household-items' },
-    { name: 'Yard Waste', slug: 'yard-waste' },
+    { name: 'Residential Moving', slug: 'residential-moving' },
+    { name: 'Commercial Moves', slug: 'commercial-moves' },
+    { name: 'Long-Distance Moving', slug: 'long-distance-moving' },
+    { name: 'Specialty Items', slug: 'specialty-items' },
   ];
 
   const closeAllMenus = () => {
@@ -68,9 +66,9 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           {/* Brand */}
           <div className="flex items-center space-x-2">
-            <Truck className="h-8 w-8 text-green-600" />
+            <Truck className="h-8 w-8 text-orange-600" />
             <Link to="/" className="text-2xl font-bold text-gray-900" aria-label="Go to homepage">
-              JunkNerds
+              Moving Nerds
             </Link>
           </div>
 
@@ -89,7 +87,7 @@ const Header = () => {
               }}
             >
               <button
-                className="inline-flex items-center gap-1 text-gray-700 font-bold hover:text-green-600 transition-colors"
+                className="inline-flex items-center gap-1 text-gray-700 font-bold hover:text-orange-600 transition-colors"
                 aria-haspopup="true"
                 aria-expanded={servicesOpen}
               >
@@ -118,7 +116,7 @@ const Header = () => {
                     <div className="mt-3">
                       <Link
                         to="/services"
-                        className="inline-block text-sm font-semibold text-green-700 hover:underline"
+                        className="inline-block text-sm font-semibold text-orange-700 hover:underline"
                         onClick={() => setServicesOpen(false)}
                       >
                         View all services →
@@ -142,7 +140,7 @@ const Header = () => {
               }}
             >
               <button
-                className="inline-flex items-center gap-1 text-gray-700 font-bold hover:text-green-600 transition-colors"
+                className="inline-flex items-center gap-1 text-gray-700 font-bold hover:text-orange-600 transition-colors"
                 aria-haspopup="true"
                 aria-expanded={areasOpen}
               >
@@ -173,33 +171,33 @@ const Header = () => {
               )}
             </div>
 
-            <Link to="/appointment" className="text-gray-700 font-bold hover:text-green-600 transition-colors">
+            <Link to="/appointment" className="text-gray-700 font-bold hover:text-orange-600 transition-colors">
               Book Now
             </Link>
-            <Link to="/price-calculator" className="text-gray-700 font-bold hover:text-green-600 transition-colors">
+            <Link to="/price-calculator" className="text-gray-700 font-bold hover:text-orange-600 transition-colors">
               Price Calculator
             </Link>
-            <Link to="/reviews" className="text-gray-700 font-bold hover:text-green-600 transition-colors">
+            {/*<Link to="/reviews" className="text-gray-700 font-bold hover:text-orange-600 transition-colors">
               Reviews
-            </Link>
+            </Link>*/}
           </nav>
 
           {/* Right actions */}
           <div className="flex items-center space-x-4">
-            <div className="hidden sm:flex items-center space-x-2 text-green-600">
+            <div className="hidden sm:flex items-center space-x-2 text-orange-600">
               <Phone className="h-4 w-4" />
               <a href="tel:+19024128566" className="font-semibold" aria-label="Call (902) 412-8566">
                 (902) 412-8566
               </a>
             </div>
 
-            <Button asChild className="hidden md:inline-flex bg-green-600 hover:bg-green-700">
+            <Button asChild className="hidden md:inline-flex bg-orange-600 hover:bg-orange-700">
               <Link to="/appointment">Get Quote</Link>
             </Button>
 
             {/* Mobile: Call + Hamburger */}
             <div className="flex items-center gap-2 md:hidden">
-              <Button asChild className="bg-green-600 hover:bg-green-700" aria-label="Call JunkNerds">
+              <Button asChild className="bg-orange-600 hover:bg-orange-700" aria-label="Call Moving Nerds">
                 <a href="tel:+19024128566" className="inline-flex items-center gap-2">
                   <Phone className="h-4 w-4" /> Call
                 </a>
@@ -245,7 +243,7 @@ const Header = () => {
           <nav className="p-4 overflow-y-auto h-[calc(100%-3.25rem)]">
             {/* Services collapsible */}
             <button
-              className="flex w-full items-center justify-between py-3 text-left text-gray-800 font-medium hover:text-green-700"
+              className="flex w-full items-center justify-between py-3 text-left text-gray-800 font-medium hover:text-orange-700"
               onClick={() => setMobileServicesOpen((v) => !v)}
               aria-expanded={mobileServicesOpen}
               aria-controls="mobile-services"
@@ -268,7 +266,7 @@ const Header = () => {
                   ))}
                   <Link
                     to="/services"
-                    className="py-2 px-2 rounded-md text-green-700 font-semibold hover:bg-green-50"
+                    className="py-2 px-2 rounded-md text-orange-700 font-semibold hover:bg-orange-50"
                     onClick={closeAllMenus}
                   >
                     View all services →
@@ -279,7 +277,7 @@ const Header = () => {
 
             {/* Areas collapsible */}
             <button
-              className="mt-1 flex w-full items-center justify-between py-3 text-left text-gray-800 font-medium hover:text-green-700"
+              className="mt-1 flex w-full items-center justify-between py-3 text-left text-gray-800 font-medium hover:text-orange-700"
               onClick={() => setMobileAreasOpen((v) => !v)}
               aria-expanded={mobileAreasOpen}
               aria-controls="mobile-areas"
@@ -307,29 +305,29 @@ const Header = () => {
             {/* Other links */}
             <Link
               to="/appointment"
-              className="block py-3 text-gray-800 font-medium hover:text-green-700"
+              className="block py-3 text-gray-800 font-medium hover:text-orange-700"
               onClick={closeAllMenus}
             >
               Book Now
             </Link>
             <Link
               to="/price-calculator"
-              className="block py-3 text-gray-800 font-medium hover:text-green-700"
+              className="block py-3 text-gray-800 font-medium hover:text-orange-700"
               onClick={closeAllMenus}
             >
               Price Calculator
             </Link>
-            <Link
+            {/* <Link
               to="/reviews"
-              className="block py-3 text-gray-800 font-medium hover:text-green-700"
+              className="block py-3 text-gray-800 font-medium hover:text-orange-700"
               onClick={closeAllMenus}
             >
               Reviews
-            </Link>
+            </Link> */}
 
             {/* CTAs */}
             <div className="mt-4 grid grid-cols-2 gap-2">
-              <Button asChild className="bg-green-600 hover:bg-green-700">
+              <Button asChild className="bg-orange-600 hover:bg-orange-700">
                 <Link to="/appointment">Get Quote</Link>
               </Button>
               <Button asChild variant="outline">

@@ -14,14 +14,14 @@ const Footer = () => {
           {/* Brand / About */}
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <Truck className="h-8 w-8 text-green-400" />
-              <span className="text-2xl font-bold">JunkNerds</span>
+              <Truck className="h-8 w-8 text-orange-400" />
+              <span className="text-2xl font-bold">Moving Nerds</span>
             </div>
             <p className="text-gray-300 mb-4">
-              Professional junk removal service serving HRM area.
-              Fast, reliable, and eco-friendly disposal solutions.
+              Professional moving service serving the HRM area.
+              Fast, reliable, and fully insured relocation solutions.
             </p>
-            <div className="flex items-center space-x-1 mb-2">
+            {/*<div className="flex items-center space-x-1 mb-2">
               {[...Array(5)].map((_, i) => (
                 <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
               ))}
@@ -34,19 +34,17 @@ const Footer = () => {
                   "Reviews unavailable"
                 )}
               </p>
-            </div>
+            </div>*/}
           </div>
 
           {/* Services */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-gray-300">
-              <li><Link to="/services/furniture-removal" className="hover:text-white">Furniture Removal</Link></li>
-              <li><Link to="/services/appliance-pickup" className="hover:text-white">Appliance Pickup</Link></li>
-              <li><Link to="/services/electronic-waste" className="hover:text-white">Electronic Waste</Link></li>
-              <li><Link to="/services/construction-debris" className="hover:text-white">Construction Debris</Link></li>
-              <li><Link to="/services/household-items" className="hover:text-white">Household Items</Link></li>
-              <li><Link to="/services/yard-waste" className="hover:text-white">Yard Waste</Link></li>
+              <li><Link to="/services/residential-moving" className="hover:text-white">Residential Moving</Link></li>
+              <li><Link to="/services/commercial-moves" className="hover:text-white">Commercial Moves</Link></li>
+              <li><Link to="/services/long-distance-moving" className="hover:text-white">Long-Distance Moving</Link></li>
+              <li><Link to="/services/specialty-items" className="hover:text-white">Specialty Items</Link></li>
             </ul>
           </div>
 
@@ -78,8 +76,8 @@ const Footer = () => {
                 </a>
               </p>
               <p>
-                <a href="mailto:support@junknerds.ca" className="no-underline">
-                  ✉️ support@junknerds.ca
+                <a href="mailto:support@movingnerds.ca" className="no-underline">
+                  ✉️ support@movingnerds.ca
                 </a>
               </p>
               <p>📍 Serving HRM Area</p>
@@ -88,7 +86,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2026 JunkNerds Junk Removal. All rights reserved. Licensed &amp; Insured.</p>
+          <p>&copy; {new Date().getFullYear()} Moving Nerds. All rights reserved. Licensed &amp; Insured.</p>
         </div>
       </div>
     </footer>

@@ -3,11 +3,9 @@ import Header from '@/components/Header';
 import Services from '@/components/Services';
 import AppointmentForm from '@/components/AppointmentForm';
 import { Button } from '@/components/ui/button';
-import { Star, CheckCircle, Truck } from 'lucide-react';
+import { CheckCircle, Truck } from 'lucide-react';
 import Footer from '@/components/Footer';
 import { Helmet } from 'react-helmet-async';
-import GoogleReviews from "@/components/GoogleReviews";
-import Reviews from '@/components/Reviews';
 import { useReviewsContext } from "@/contexts/ReviewsContext";
 
 const Index = () => {
@@ -16,11 +14,10 @@ const Index = () => {
     if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Counter states
+  // Counter states for Startup Moving Company
   const [jobs, setJobs] = useState(0);
   const [response, setResponse] = useState(0);
   const [satisfaction, setSatisfaction] = useState(0);
-  const [recycled, setRecycled] = useState(0);
   const [hasAnimated, setHasAnimated] = useState(false);
 
   // Observe the stats section entering view
@@ -55,85 +52,78 @@ const Index = () => {
       typeof window !== 'undefined' &&
       window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches;
 
+    // Target values for a believable startup moving company
+    const TARGET_JOBS = 150;
+    const TARGET_RESPONSE = 2;
+    const TARGET_SATISFACTION = 99;
+
     if (prefersReduced) {
-      setJobs(5000);
-      setResponse(24);
-      setSatisfaction(100);
-      setRecycled(80);
+      setJobs(TARGET_JOBS);
+      setResponse(TARGET_RESPONSE);
+      setSatisfaction(TARGET_SATISFACTION);
       return;
     }
 
     const i1 = window.setInterval(() => {
       setJobs((prev) => {
-        if (prev >= 5000) {
+        if (prev >= TARGET_JOBS) {
           clearInterval(i1);
-          return 5000;
-        }
-        return prev + 50;
-      });
-    }, 10);
-
-    const i2 = window.setInterval(() => {
-      setResponse((prev) => {
-        if (prev >= 24) {
-          clearInterval(i2);
-          return 24;
-        }
-        return prev + 1;
-      });
-    }, 100);
-
-    const i3 = window.setInterval(() => {
-      setSatisfaction((prev) => {
-        if (prev >= 100) {
-          clearInterval(i3);
-          return 100;
+          return TARGET_JOBS;
         }
         return prev + 2;
       });
-    }, 30);
+    }, 15);
 
-    const i4 = window.setInterval(() => {
-      setRecycled((prev) => {
-        if (prev >= 80) {
-          clearInterval(i4);
-          return 80;
+    const i2 = window.setInterval(() => {
+      setResponse((prev) => {
+        if (prev >= TARGET_RESPONSE) {
+          clearInterval(i2);
+          return TARGET_RESPONSE;
         }
         return prev + 1;
       });
-    }, 50);
+    }, 400); // Slower interval for smaller numbers
+
+    const i3 = window.setInterval(() => {
+      setSatisfaction((prev) => {
+        if (prev >= TARGET_SATISFACTION) {
+          clearInterval(i3);
+          return TARGET_SATISFACTION;
+        }
+        return prev + 1;
+      });
+    }, 20);
 
     return () => {
       clearInterval(i1);
       clearInterval(i2);
       clearInterval(i3);
-      clearInterval(i4);
     };
   }, [hasAnimated]);
 
   return (
     <div className="min-h-screen bg-white">
       <Helmet>
-        <title>JunkNerds | Junk Removal Halifax & HRM | Same-Day Pickup</title>
+        <title>Moving Nerds | Professional Movers in Halifax & HRM</title>
         <meta
           name="description"
-          content="JunkNerds provides fast, insured junk removal in Halifax & HRM. Same-day service and free quotes."
+          content="Moving Nerds provides fast, fully insured moving services in Halifax & HRM. Residential, commercial, and same-day service available. Get a free quote today!"
         />
-        <link rel="canonical" href="https://junknerds.ca/" />
+        <link rel="canonical" href="https://movingnerds.ca/" />
 
         {/* OG/Twitter for the homepage only */}
         <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="JunkNerds" />
-        <meta property="og:title" content="JunkNerds | Junk Removal Halifax & HRM | Same-Day Pickup" />
-        <meta property="og:description" content="Fast, eco-friendly junk removal in Halifax & HRM. Free quotes. Call (902) 412-8566." />
-        <meta property="og:url" content="https://junknerds.ca/" />
-        <meta property="og:image" content="https://junknerds.ca/dashboard/junknerds.jpg" />
+        <meta property="og:site_name" content="Moving Nerds" />
+        <meta property="og:title" content="Moving Nerds | Professional Movers in Halifax & HRM" />
+        <meta property="og:description" content="Fast, fully insured moving service in Halifax & HRM. Residential and commercial moves. Free quotes. Call (902) 412-8566." />
+        <meta property="og:url" content="https://movingnerds.ca/" />
+        <meta property="og:image" content="https://movingnerds.ca/dashboardmovingnerds.jpg" />
         <meta property="og:locale" content="en_CA" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="JunkNerds | Junk Removal Halifax & HRM | Same-Day Pickup" />
-        <meta name="twitter:description" content="Free quotes. Same-day service. Call (902) 412-8566." />
-        <meta name="twitter:image" content="https://junknerds.ca/dashboard/junknerds.jpg" />
+        <meta name="twitter:title" content="Moving Nerds | Professional Movers in Halifax & HRM" />
+        <meta name="twitter:description" content="Free quotes. Secure transport. Call (902) 412-8566." />
+        <meta name="twitter:image" content="https://movingnerds.ca/dashboardmovingnerds.jpg" />
       </Helmet>
       <Header />
 
@@ -143,7 +133,7 @@ const Index = () => {
         style={{
           backgroundImage: `
       linear-gradient(135deg, rgba(240,253,244,.10), rgba(239,246,255,.10)),
-      url('https://junknerds.ca/dashboard/junknerds.jpg')
+      url('/dashboard/movingnerds.jpg')
     `,
           backgroundSize: "cover",
           backgroundPosition: "center",
@@ -151,27 +141,29 @@ const Index = () => {
         }}
       >
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-black/30" />
+        {/* Overlay - Fixed blur class and darkened slightly */}
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-none" />
 
         {/* Content Wrapper */}
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex-1 flex items-center">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6">
-                Fast & Reliable
-                <span className="text-4xl lg:text-6xl text-white block"> Junk Removal</span>
-              </h1>
-              <p className="text-xl text-white/90 mb-8 font-bold leading-relaxed">
-                Same-day service available! We remove furniture, appliances, electronics,
-                construction debris, and more. Professional, insured, and eco-friendly.
-              </p>
+          <div className="grid lg:grid-cols-2 gap-12 justify-items-start w-full">
 
+            {/* Added lg:-ml-[10%] to pull this block 10% further left on large screens */}
+            <div className="w-full lg:-ml-[10%]">
+
+              {/* Added drop-shadow-lg for better text separation */}
+              <h1 className="text-4xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+                Fast & Reliable
+                <span className="text-4xl lg:text-6xl text-white block"> Moving Service</span>
+              </h1>
+              <p className="text-white text-lg sm:text-base font-semibold mb-3 drop-shadow-md tracking-wide content-center">
+                Your trusted Halifax moving team! We handle full-home relocations, apartments, and commercial moves.
+              </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Button
                   onClick={scrollToAppointment}
                   size="lg"
-                  className="bg-green-600 hover:bg-green-700 text-lg px-8 py-6"
+                  className="bg-orange-600 hover:bg-orange-700 text-lg px-8 py-6 shadow-lg shadow-orange-900/50 border-none"
                 >
                   Get Free Estimate
                 </Button>
@@ -179,57 +171,43 @@ const Index = () => {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="border-green-600 text-green-600 hover:bg-green-50 text-lg px-8 py-6"
+                  className="bg-white/10 border-white/50 text-white hover:bg-white/20 hover:text-white text-lg px-8 py-6 backdrop-blur-sm"
                 >
                   <a href="tel:+19024128566" aria-label="Call (902) 412-8566">
                     Call (902) 412-8566
                   </a>
                 </Button>
               </div>
-
-              <div className="flex items-center space-x-6">
-                <div className="flex items-center space-x-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
-                  ))}
-                  <span className="ml-2 text-white/90">{loading ? (
-                    <span className="opacity-70">Loading rating…</span>
-                  ) : rating && userRatingCount ? (
-                    <>
-                      <span className="font-semibold">{rating.toFixed(1)}/5</span>
-                      <span className="text-gray-500">({userRatingCount}+ reviews)</span>
-                    </>
-                  ) : (
-                    <span className="opacity-70">Reviews unavailable</span>
-                  )}
-                  </span>
-                </div>
-              </div>
             </div>
           </div>
         </div>
 
-        {/* Promo Banner at Bottom (responsive + no overflow) */}
-        <div className="w-full flex justify-center pb-6 px-4 sm:px-6">
+        {/* Promo Banner at Bottom */}
+        <div className="w-full flex flex-col items-center justify-center pb-8 px-4 sm:px-6">
+          {/* New Text Above Button */}
+          <p className="text-white text-sm sm:text-base font-semibold mb-3 drop-shadow-md tracking-wide">
+            Ready for a stress-free move? Lock in your date today!
+          </p>
+
           <div className="relative inline-block w-full max-w-md rounded-xl overflow-hidden">
-            {/* Soft pulse background (clipped, so no horizontal scroll) */}
+            {/* Soft pulse background */}
             <div
-              className="pointer-events-none absolute inset-0 rounded-xl bg-green-400/40 animate-ping"
+              className="pointer-events-none absolute inset-0 rounded-xl bg-orange-400/40 animate-ping"
               aria-hidden
             />
             <a href="#appointment" aria-label="Book online and get ten percent off" className="block">
-              <div className="relative z-10 bg-white text-green-700 font-bold
+              <div className="relative z-10 bg-white text-orange-700 font-bold
                       text-[clamp(1rem,4vw,1.5rem)]
                       px-4 py-3 sm:px-8 sm:py-4
                       rounded-xl shadow-xl text-center leading-tight">
                 {/* Mobile: stack text on two lines */}
                 <span className="sm:hidden block">Book Online</span>
                 <span className="sm:hidden block">
-                  Get <span className="text-green-600">10% OFF!</span>
+                  Get <span className="text-orange-600">10% OFF!</span>
                 </span>
                 {/* Desktop: single line */}
                 <span className="hidden sm:inline">
-                  Book Online & Get <span className="text-green-600">10% OFF!</span>
+                  Book Online & Get <span className="text-orange-600">10% OFF!</span>
                 </span>
               </div>
             </a>
@@ -237,26 +215,38 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Why Choose JunkNerds Section */}
+      {/* Why Choose Moving Nerds Section */}
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-start">
-          {/* Why Choose JunkNerds */}
+          {/* Why Choose Moving Nerds */}
           <div className="relative">
             <div className="bg-white rounded-2xl shadow-2xl p-8">
               <div className="text-center mb-6">
-                <Truck className="h-16 w-16 text-green-600 mx-auto mb-4" />
-                <h3 className="text-2xl font-bold text-gray-900">Why Choose JunkNerds?</h3>
+                <Truck className="h-16 w-16 text-orange-600 mx-auto mb-4" />
+                <h3 className="text-2xl font-bold text-gray-900">Why Choose Moving Nerds?</h3>
               </div>
 
               <div className="space-y-4">
                 {[
-                  { title: 'Same-Day Service', desc: 'Quick response for urgent removals' },
-                  { title: 'Fully Licensed & Insured', desc: 'Your property is protected' },
-                  { title: 'Eco-Friendly Disposal', desc: 'We recycle and donate when possible' },
-                  { title: 'Transparent Pricing', desc: 'No hidden fees or surprises' },
+                  {
+                    title: 'Flexible & Same-Day Moves',
+                    desc: 'Quick response for urgent and last-minute relocations'
+                  },
+                  {
+                    title: 'Fully Licensed & Insured',
+                    desc: 'Your belongings and home are completely protected'
+                  },
+                  {
+                    title: 'Expert Handling',
+                    desc: 'Professional wrapping, packing, and secure transport'
+                  },
+                  {
+                    title: 'Transparent Pricing',
+                    desc: 'Accurate, upfront estimates with no hidden fees'
+                  },
                 ].map((f, idx) => (
                   <div key={idx} className="flex items-start space-x-3">
-                    <CheckCircle className="h-6 w-6 text-green-500 mt-0.5" />
+                    <CheckCircle className="h-6 w-6 text-orange-500 mt-0.5" />
                     <div>
                       <h4 className="font-semibold text-gray-900">{f.title}</h4>
                       <p className="text-gray-600">{f.desc}</p>
@@ -276,12 +266,21 @@ const Index = () => {
 
               <div className="space-y-6">
                 {[
-                  { step: '1. Book Online or Call', desc: 'Schedule easily with our simple booking form' },
-                  { step: '2. Get an Estimate', desc: 'We provide a quick, upfront estimate' },
-                  { step: '3. We Load Your Junk', desc: 'Our crew arrives and hauls everything away' },
+                  {
+                    step: '1. Book Online or Call',
+                    desc: 'Schedule your move easily with our simple booking form'
+                  },
+                  {
+                    step: '2. Get an Estimate',
+                    desc: 'We provide a clear, upfront moving quote with no surprises'
+                  },
+                  {
+                    step: '3. We Handle the Move',
+                    desc: 'Our expert crew safely loads, transports, and unloads your belongings'
+                  },
                 ].map((s, idx) => (
                   <div key={idx} className="flex items-start space-x-3">
-                    <CheckCircle className="h-6 w-6 text-green-500 mt-0.5" />
+                    <CheckCircle className="h-6 w-6 text-orange-500 mt-0.5" />
                     <div>
                       <h4 className="font-semibold text-gray-900">{s.step}</h4>
                       <p className="text-gray-600">{s.desc}</p>
@@ -300,38 +299,31 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-green-400 mb-2">{jobs}+</div>
-              <div className="text-gray-300">Jobs Completed</div>
+              <div className="text-3xl font-bold text-orange-400 mb-2">{jobs}+</div>
+              <div className="text-gray-300">Successful Moves</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-green-400 mb-2">{response}hrs</div>
-              <div className="text-gray-300">Average Response Time</div>
+              <div className="text-3xl font-bold text-orange-400 mb-2">&lt; {response} hrs</div>
+              <div className="text-gray-300">Quote Response Time</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-green-400 mb-2">{satisfaction}%</div>
-              <div className="text-gray-300">Satisfaction Rate</div>
+              <div className="text-3xl font-bold text-orange-400 mb-2">{satisfaction}%</div>
+              <div className="text-gray-300">On-Time Arrival</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-green-400 mb-2">{recycled}%</div>
-              <div className="text-gray-300">Items Recycled</div>
+              <div className="text-3xl font-bold text-orange-400 mb-2">0</div>
+              <div className="text-gray-300">Hidden Fees</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services anchor for /#services links */}
+      {/* Services anchor */}
       <section id="services">
         <Services />
       </section>
 
-      {/* Services anchor for /#reviews links */}
-      <section id="reviews">
-        <GoogleReviews />
-        {/* Reviews pulled from Google */}
-        <Reviews />
-      </section>
-
-      {/* Appointment anchor for scroll + CTA */}
+      {/* Appointment anchor */}
       <section id="appointment">
         <AppointmentForm />
       </section>

@@ -1,5 +1,5 @@
 import fs from "fs";
-const base = "https://junknerds.ca";
+const base = "https:movingnerds.ca";
 const today = new Date().toISOString().slice(0,10);
 
 const serviceSlugs = [

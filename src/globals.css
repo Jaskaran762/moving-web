@@ -31,5 +31,5 @@ html {
 
 .stat {
   font-family: 'Space Grotesk', sans-serif;
-  @apply text-4xl font-bold text-green-500;
+  @apply text-4xl font-bold text-orange-500;
 }
